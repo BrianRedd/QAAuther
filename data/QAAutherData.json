@@ -1,0 +1,17 @@
+{"timestamp":"2017-12-15, 11:56 [br]",
+"fields":[{"Name":"Par","Label":"Parent","Default":""},{"Name":"Pub","Label":"Publication"},{"Name":"Primary","Label":"Primary"},{"Name":"Repo","Label":"Repository ID"},{"Name":"App","Label":"Application"},{"Name":"Ver","Label":"Version","Default":""},{"Name":"Dom","Label":"Domain","Default":"digital.olivesoftware.com"},{"Name":"External","Label":"Externally Hosted","Type":"Bool","Default":false},{"Name":"Skin","Label":"Skin Name"},{"Name":"Wrapper","Label":"Wrapper"},{"Name":"NIE","Label":"NIE","Type":"Bool","Default":false},{"Name":"Login","Label":"Login","Default":"n/a"},{"Name":"Pass","Label":"Passphrase","Default":"n/a"},{"Name":"Rest","Label":"Restrictions","Default":"n/a"},{"Name":"Stat","Label":"Status","Type":"List","Params":[{"0":"Live","1":"In Progress","2":"Dead","3":"Test"}],"Default":0},{"Name":"CP","Label":"CP Code","Default":"n/a"},{"Name":"SpcR","Label":"Special Rules","Default":"n/a"}],
+"sites": [
+{"Pub":"Denver%20Post","Repo":"TDP","App":"iReader","Ver":"2.8.2","Skin":"DenverPostNIE","NIE":true,"Pass":"po%24teeI@","Rest":true,"TS":"2017-12-04, 15:18 [bf]"}
+,{"Pub":"Denver%20Post","Primary":true,"Repo":"TDP","App":"ODN","Ver":"1.5","Skin":"DenverPost","Wrapper":2,"Pass":"dnaMG2","Rest":true,"CP":"422736","TS":"2017-06-27, 09:21"}
+,{"Pub":"Denver%20Post","Repo":"TDP","App":"ODN","Ver":"1.5","Skin":"DenverPostNIE","NIE":true,"Pass":"dnaMG2","Rest":true,"CP":"422736","TS":"2017-05-31, 15:45"}
+,{"Pub":"Denver%20Post","Repo":"TDP","App":"ODN","Ver":"1.5","Skin":"DenverPostTrial","Auth":2,"CP":"422736","TS":"2017-05-31, 15:45"}
+,{"Pub":"Denver%20Post","Repo":"TDP","App":"iReader","Ver":"2.8.5","Skin":"DenverPost","Pass":"dnaMG2","Rest":true,"TS":"2017-12-04, 15:18 [bf]"}
+,{"Pub":"Denver%20Post","Repo":"TDP","App":"CET","Ver":"3.1","Skin":"DenverPost","Auth":3,"Pass":"guest%3Aguest","TS":"2017-06-13, 15:43"}
+,{"Pub":"Denver%20Post","Repo":"TDP,RMN","App":"APA","Ver":"5.2","Skin":"DenverPost","Pass":"dnaMG2","Rest":true,"TS":"2017-10-17, 09:24"}
+,{"Pub":"Denver%20Post%201.5","Repo":"TDP","App":"ODN","Ver":"1.5","Skin":"DenverPost1.5","Pass":"dnaMG2","Rest":true,"Stat":2,"TS":"2017-06-27, 09:21"}
+,{"Pub":"Denver%20Post%3A%20American%20Profile","Repo":"TDPC","App":"ODN","Ver":"1.5","Skin":"DPAmericanProfile","Pass":"dnaMG2","Rest":true,"Stat":1,"CP":"422736","TS":"2017-12-14, 10:37 [bf]"}
+,{"Pub":"Denver%20Post%3A%20Parade","Repo":"TDPP","App":"ODN","Ver":"1.5","Skin":"ParadeDP","Auth":1,"TS":"2017-05-24, 07:45"}
+,{"Pub":"Denver%20Post%3A%20Relish","Repo":"TDPR","App":"ODN","Ver":"1.5","Skin":"DPRelish","Pass":"dnaMG2","Rest":true,"Stat":1,"CP":"422736","TS":"2017-12-14, 10:37 [bf]"}
+,{"Pub":"Denver%20Post%3A%20Spry","Repo":"TDPS","App":"ODN","Ver":"1.5","Skin":"DPSpry","Pass":"dnaMG2","Rest":true,"Stat":1,"CP":"422736","TS":"2017-12-14, 10:37 [bf]"}
+,{"Pub":"Denver%20Post%3ASports%20%26%20Life","Repo":"TDPSL","App":"ODN","Ver":"1.5","Skin":"DPSportsAndLife","Pass":"dnaMG2","Rest":true,"Stat":1,"CP":"422736","TS":"2017-12-14, 10:37 [bf]"}
+]}

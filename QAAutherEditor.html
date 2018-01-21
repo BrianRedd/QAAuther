@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>QA Authenticator Data Editor</title>
+<!-- version 6.1.0-->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<!-- build:css Styles/qaae.css -->
+<link rel="stylesheet" type="text/css" href="styles/qaae.css" /> <!--Load general site CSS styles-->
+<!-- endbuild -->
+
+</head>
+<body>
+<div id="controlframe" class="oliveStyle">
+	<H1><span class="wide"><a href="QAAuther.html" target="_blank">Olive Software QA Authenticator</a> Editor Tool</span> <div class="helpbutton imgbutton"><abbr title="Open Help">&nbsp;&nbsp;&nbsp;&nbsp;</abbr></div></H1>
+	<h2><span class="wide"></span><div class="logoutbutton imgbutton"><abbr title="Logout">&nbsp;&nbsp;&nbsp;&nbsp;</abbr></div></h2>
+	<div id="filter">
+		<form id="filterform" name="filterform" >
+			<label for="filterform">Filter:</label>
+			<select id="ffield" name="ffield">
+				<option value="parent">Parent</option>
+				<option value="publication">Publication</option>
+				<option value="repo">Repository ID</option>
+				<option value="app">Application</option>
+				<option value="ver">Ver</option>
+				<option value="domain">Domain</option>
+				<option value="skin">Skin Name</option>
+				<option value="login">Login Page</option>
+				<option value="passphrase">Passphrase</option>
+			</select>
+			<input type="text" id="ftext" name="ftext"/>
+		</form>
+		<button id="clearfilter">Clear Filter</button>
+		<button id="applyfilter" accesskey="13">Apply Filter</button>
+	</div>
+	<!--a href="http://www.olivesoftware.com" alt="Olive Software, Inc."><img src="/QAAuther/images/OliveLogo.gif" alt="Olive Logo"></a-->
+</div>
+<div id="editframe">
+	<table width="100%">
+		<tr class="tableheader">
+			<td class="icon"><div class="addbutton imgbutton"><abbr title="New Record">&nbsp;&nbsp;&nbsp;&nbsp;</abbr></div></td>
+			<th class="parent">Parent</th>
+			<th class="publication">Publication</th>
+			<th class="primary">Primary</th><!--new 6.0-->
+			<th class="repo"><abbr title="Repository ID">Repo</abbr></th>
+			<th class="app"><abbr title="Application">App</abbr></th>
+			<th class="ver"><abbr title="Version">Ver</abbr></th>
+			<th class="domain"><abbr title="Non-Olive Cluster (Default) Fully Qualified Domain Name">Domain</abbr></th>
+			<th class="external"><abbr title="Is skin hosted outside of Olive cluster environment?">Hosted Externally</abbr></th>
+			<th class="skin">Skin</th>
+			<th class="wrapper">Wrapper</th><!--new 6.0-->
+			<th class="nie"><abbr title="Newspaper in Education?">NIE</abbr></th>
+			<th class="auth"><abbr title="Authentication Method">Auth</abbr></th>
+			<th class="login"><abbr title="Login Folder (APA &amp; APD2) or ADL KnowledgeBase">Login/KB</abbr></th>
+			<th class="passphrase"><abbr title="Shared Secret Passphrase or ATS Admin password">Passphrase</abbr></th>
+			<th class="restrictions"><abbr title="Is Olive Authentication looking for r= parameter?">Restrictions</abbr></th>
+			<th class="stat"><abbr title="Skin Status">Status</abbr></th>
+			<th class="cp"><abbr title="CP Code">CP Code</abbr></th>
+			<th class="spcrule"><abbr title="Site have special rules?  See Help for list of current Special Rules">Special Rule</abbr></th>
+			<th class="ts"><abbr title="Timestamp">Time- stamp</abbr></th>
+			<td class="icon"><div class="storebutton imgbutton"><abbr title="Save Data">&nbsp;&nbsp;&nbsp;&nbsp;</abbr></div></td>
+		</tr>
+		<tr class="loading"><td colspan="21"></td></tr>
+	</table>
+</div>
+
+<!-- Help -->
+<div id="help">
+	<p>Version: <span class="pageversion">6.0.1</span></p>
+	<p><em>Editing QA Authenticator Data:</em></p>
+	<p>Click on Column Headers to sort table by appropriate column.</p>
+	<p>Click <span class="addbutton imghelp"></span> to add and edit a new record (new record will appear at top of list).</p>
+	<p>Click <span class="editbutton imghelp"></span> to edit a row.</p>
+	<p>Click <span class="savebutton imghelp"></span> when done.  Edited rows will appear in <span class="edited">blue</span> (even if no data was changed).</p>
+	<p>Click <span class="deletebutton imghelp"></span> to remove a row (you will be prompted to confirm before row is deleted).</p>
+	<p>If you accidentally delete a row you shouldn't have, refresh the page (hit <kbd>F5</kbd>).  NOTE: Doing so will
+		erase ALL unsaved changes applied to the data.</p>
+	<p>Click <span class="clonebutton imghelp"></span> to create a new clone row and edit it.</p>
+	<p>Click <span class="storebutton imghelp"></span> to open XML content in a selectable format; this content should then be saved to the <code>QAAutherData.xml</code> file.</p>
+	<p>To filter displayed rows, use the filter fields; choose the column from the drop down then enter the text in the text field.<br/>
+	<kbd>[Apply Filter]</kbd> will remove all items from the display that do not match your criteria. You can apply multiple filters.<br/>
+	<kbd>[Clear Filter]</kbd> will clear all filters.
+	<p>Special Rules:
+		<ol>
+			<li title="1">Short URL, such as http://[domain]/[skin_name]</li>
+			<li title="2">RSSFeed located under http://demo.olivesoftare.com/[parent]/feeds/[skin_name]/manifest.xml</li>
+			<li title="3">Short URL, such as http://[domain]/, with no Skin Name</li>
+			<li title="4">RSSFeed located under http://demo.olivesoftare.com/repository/[repos]/[yyyy]/[mm]/[dd]/res/channels/kindlefeed/manifest.xml</li>
+			<li title="5">External site with added index link</li>
+			<li title="6">Uses "Default" virtual directory for ATS, but with unique ProjectId</li>
+			<li title="7">Uses "Default" virtual directory for APD2.x (Low Level URL) instead of "Daily"</li>
+			<li title="8">Time Traveler application (default.aspx replaced with defaultTT.aspx</li>
+			<li title="9">Skin is HTTPS (but not using digital2.olivesoftware.com)</li>
+		</ol>
+	</p>
+	<p>Please send any feedback (bugs, suggestions, etc) to <a href="mailto:brian.redd@olivesoftware.com">Brian Redd</a>.</p>
+</div>
+
+<div id="storefile">
+	<h1>Number of Records: <span></span>
+	<div id="hidestorefile" class="imgbutton"><abbr title="Hide">&nbsp;&nbsp;&nbsp;&nbsp;</abbr></div>
+	</h1>
+	<br/>
+</div>
+
+<div id="blackout" class="authmodal">
+</div>
+<div id="login" class="authmodal">
+	<form id="loginform" name="loginform">
+		<span id="message">PLEASE SIGN-IN</span>
+		<br/>
+		<p>
+			<label for="loginun">User Name:</label>
+			<input id="loginun" name="loginun" type="text" maxlength="200"/>
+		</p>
+		<p>
+			<label for="loginpw">Password:</label>
+			<input id="loginpw" name="loginpw" type="password" maxlength="200"/>
+		</p>
+	</form>
+	<button>Submit</button>
+	<div id="pwrecovery"><a href="mailto:brian.redd@olivesoftware.com?subject=Forgotten Password for QAAE!">Forgot Password</a></div>
+</div>
+
+<!-- build:js Inc/qaae.js -->
+<script type="text/javascript" src="code/jquery-1.6.4.min.js"></script> <!--Load jQuery-->
+<script type="text/javascript" src="inc/ed_scripts6.1.js"></script> <!-- Load general scripts file-->
+<!-- endbuild -->
+
+</body>
+</html>

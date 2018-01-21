@@ -1,0 +1,516 @@
+@charset "utf-8";
+
+/*--------------------------------------------------------
+
+* Filename: styles.css
+* Description: CSS file for QAAuther ver 6.1.0
+
+* Author: R. Brian Redd 
+         
+--------------------------------------------------------*/       
+
+body {
+	font-family: Tahoma;
+	font-size: 14px;
+	margin: 1px;
+	padding: 2px;
+}
+
+a {
+	color: #525F44;
+}
+
+a:hover {
+	color: #77945A;
+}
+
+a:visited {
+	color: #008000;
+}
+
+a[href^='#']:visited {
+	color: #525F44;
+}
+
+p {
+	position: relative;
+}
+
+.hidden {
+	display: none;
+}
+
+.floatright {
+	float: right;
+}
+
+.floatleft {
+	float: left;
+}
+
+/*	CONTROL FRAME
+--------------------------------------------------------*/ 
+
+#controlframe img {
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	width: 114px;
+	height: 40px;
+	border: none;
+	opacity: .8;
+	-webkit-transition: -webkit-transform .5s;
+	-moz-transition: -moz-transform .5s;
+	-o-transition: -o-transform .5s;
+	transition: transform .5s;
+}
+
+#controlframe img:hover {
+	opacity: 1;
+	-webkit-transform: scale(1.25);
+	-moz-transform: scale(1.25);
+	-o-transform: scale(1.25);
+	transform: scale(1.25);
+}
+
+#form_header {
+	height: 189px;
+}
+
+/*Three columns within Control Frame*/
+
+#formcols {
+	width: 100%;
+	height: 130px;
+}
+
+.formfield {
+	position: absolute;
+	width: 30%;
+}
+
+#leftform {
+	left: 20px;
+}
+
+#centform {
+	margin-left: 33%;
+}
+
+#rightform {
+	margin-left: 66%;
+}
+
+#formbutts {
+	padding: 10px;
+	/*text-align: center;*/
+	margin-left: 25%;
+	position: relative;
+}
+
+#rndauthid {
+	cursor: pointer;
+	height: 16px;
+	width: 16px;
+	background: transparent url('images/Dice-1-icon.png') no-repeat center center;
+}
+
+/*	HELP & Reload
+--------------------------------------------------------*/ 
+
+#helpbutton,
+#reloadbutton  {
+	font-size: 12px;
+	vertical-align: top;
+}
+
+#help kbd {
+	font-weight: bold;
+}
+
+#help kbd, code, em {
+	color: olive;
+}
+
+#help em {
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: underline;
+}
+
+#help a {
+	color: #77945A;
+	text-decoration: none;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+
+#help a:hover {
+	color: #77945A;
+	text-decoration: underline;
+}
+
+/*	NAVIGATION (LEFT) FRAME
+--------------------------------------------------------*/ 
+
+#navframe {
+	clear: both;
+	width: 39%;
+	height: 100%;
+	float: left;
+	background-color: #CCC;
+	overflow: auto;
+}
+
+li {
+	margin-left: 5px;
+	cursor: pointer;
+	line-height: 120%;
+	white-space: nowrap;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+
+li:hover {
+	margin-left: 0px;
+	background-color: #77945A;
+	font-weight: bold;
+	
+}
+
+/*Data specific classes*/
+
+
+abbr {
+	border-color: #77945A;
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+}
+
+.noresults,
+.mfnoresults {
+	list-style: none;
+	font-weight: bold;
+	font-size: 14px;
+	text-align: center;
+	color: red;
+}
+
+.nodemo {
+	/*color: red;*/
+}
+
+.demo {
+	/*color: #444;*/
+}
+
+.parentorg {
+	font-style: italic;
+}
+
+.dead {
+	text-decoration: line-through;
+}
+
+.inttest {
+	color: #525F44;
+}
+
+.inprog {
+	color: #666;
+}
+
+#hostedby {
+	margin-right: 20px;
+}
+
+.app {
+	border: 1px #77945A solid;
+}
+
+.repoid {
+	color: #666;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+/*	DISPLAY (RIGHT) FRAME
+--------------------------------------------------------*/ 
+
+#dispframe {
+	float: right;
+	width:60%;
+	height: 100%;
+	overflow: auto;
+	font-size: 16px;
+}
+
+#dispframe .repoid {
+	color: #CCC;
+}
+
+#dispframe a {
+	font-size: 1em;
+}
+
+#dispframe .small{
+	margin-right: 10px;
+	font-size: .8em;
+}
+
+#dispframe  h1{
+	font-size: 18px;
+	background-color: #DDD;
+}
+
+#dispframe button,
+.linkbuttset,
+.functbuttset,
+#indexAll,
+#akclearAll {
+	padding: 0;
+	line-height: 1;
+	font-size: .8em;
+}
+
+.linkbuttset,
+.functbuttset {
+	padding-bottom: 10px;
+}
+
+a.linkbutt:hover,
+a.processer:hover {
+	color: #FFF;
+}
+
+/*.closer {
+	position: absolute;
+	top: 0px;
+	right: 12px;
+	padding: 1px;
+	margin: 0px;
+	width: 20px;
+	height: 19px;
+}
+
+.closer .ui-icon {
+	position: absolute;
+	left: 1px;
+	top: 1px;
+}*/
+
+.closer {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	height: 24px;
+	width: 24px;
+	background-image: url('images/close-5.png');
+	cursor: pointer;
+}
+
+.closer:hover {
+	margin-top: 1px;
+}
+
+.entry {
+	position: relative;
+	/*height: 150px;*/
+	overflow: auto;
+}
+
+.entry h1 {
+	margin-top: 2px;
+}
+
+
+/*	POP-OUT DIALOGS
+--------------------------------------------------------*/ 
+
+#processtext {
+	max-height: 700px;
+	overflow: auto;
+}
+
+#processtext .indexopt ,
+#akcleartext .akclearopt {
+	padding-bottom: 10px;
+}
+
+.akclearopt a:hover {
+	color: green;
+}
+
+#sitesum {
+	background-color: white;
+}
+
+/*added 2013-07-26*/
+#sitesummarytext {
+	height: 100%;
+}
+
+#ui-dialog-title-sitesummary .repoid {
+	color: #D3DDCC;
+}
+
+/*Version 4.9*/
+.link_text {
+	width: 85%;
+	float: left;
+}
+
+.clear {
+	clear: both;
+}
+
+.link_auth_butt {
+	float: right;
+}
+
+/*Version 4.10*/
+#processSpecial {
+	display: none;
+}
+
+#processSpecial.visible {
+	display: inline-block;
+}
+
+/*Version 5.1*/
+#list_export {
+	float: right;
+}
+
+#expListTable {
+	width: 100%;
+	background-color: #FFF;
+	font-size: 10pt;
+}
+
+#expListTable td.szlim {
+	max-width: 300px!important;
+	overflow: auto;
+}
+
+#expListTable td.stat0 {
+	color: green;
+}
+
+#expListTable td.stat1 {
+	color: orange;
+}
+
+#expListTable td.stat2 {
+	color: red;
+}
+
+#expListTable td.stat3 {
+	color: purple;
+}
+
+#expListTable td.auth0 {
+	color: red;
+}
+
+#expListTable td.auth1 {
+	color: green;
+}
+
+#expListTable td.auth2 {
+	color: orange;
+}
+
+#expListTable td.auth3 {
+	color: purple;
+}
+
+/*Custom Icons*/
+span.custom-icon-ios,
+span.custom-icon-android {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-size: 11px;
+    background-repeat: no-repeat;
+    background-position: center;
+	opacity: 0.6;
+}
+
+.custom-icon-ios {
+	background-image: url('images/Apple_K.png');
+}
+
+.custom-icon-android {
+	background-image: url('images/Android_K.png');
+}
+
+.ui-widget-header .custom-icon-ios {
+	background-image: url('images/Apple_W.png');
+}
+
+.ui-widget-header .custom-icon-android {
+	background-image: url('images/Android_W.png');
+}
+
+@media screen and (max-width: 1030px) {
+	#formbutts {
+		padding: 10px;
+		margin-left: 0%;
+	}
+}
+
+@media screen and (max-width: 840px) {
+	#controlframe {
+		padding: 0px;
+		height: 33%;
+	}
+
+	#controlframe img {
+		display: none;
+	}
+
+	#formcols {
+		overflow: auto;
+	}
+
+	.formfield {
+		position: relative;
+		width: 100%;
+	}
+
+	#leftform,
+	#centform ,
+	#rightform {
+		left: 0px;
+		margin-left: 20px;
+		width: 80%;
+	}
+}
+
+@media screen and (orientation: portrait) {
+	#workframe {
+		height: 67%;
+	}
+
+	#navframe {
+		clear: both;
+		width: 100%;
+		height: 30%;
+		background-color: #CCC;
+		overflow: scroll;
+	}
+
+	#dispframe {
+		width: 100%;
+		height: 70%;
+		overflow: auto;
+		font-size: 16px;
+	}
+}

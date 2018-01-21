@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Olive QA Authenticator Tool (QAAuther)</title>
+
+<!-- version 6.0.2 -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<script language="JavaScript">
+	var ParFilter = "Olive";
+</script>
+
+<!-- build:css Styles/qaa.css -->
+<link rel="stylesheet" type="text/css" href="code/jquery-ui-1.8.16.custom.css"> <!--Load jQuery UI CSS styles-->
+<link rel="stylesheet" type="text/css" href="styles/qaa.css"> <!--Load general site CSS styles-->
+<!-- endbuild -->
+</head>
+
+<body>
+<div id="controlframe">
+	<div class="ui-widget-header ui-corner-top" id="logo_header">
+		<a href="http://www.olivesoftware.com" alt="Olive Software, Inc."><img src="Styles/images/OliveLogo.gif" alt="Olive Logo"></a>
+		<H1><span id="parhdr"></span>Olive Software QA Authenticator Tool <a id="helpbutton" href="#">Help</a><a id="reloadbutton" href="#">Reload</a></H1>
+	</div>
+	<div  class="ui-widget-content" id="form_header">
+		<form id="filter" name="filter">
+			<div id="formcols">
+				<div class="formfield rightfields" id="centform">
+					<p>
+						<label for="textfilt">Generic Text Filter:</label>
+						<input type="text" id="textfilt" name="textfilt"/>
+					</p>
+					<p class="oliveonly">
+						<label for="parentorg">Parent: </label>
+						<select id="parentorg" name="parentorg" class="immediateapply"></select>
+					</p>
+					<p>
+						<label for="application">Application: </label>
+						<select id="application" name="application" class="immediateapplyapp"></select>&nbsp;
+						<span class="oliveonly hidden" id="applicationversion">
+							<label for="appver">Ver: </label>
+							<select id="appver" name="appver" class="immediateapply"></select>
+						</span>
+					</p>
+				</div>
+				<div class="formfield rightfields" id="rightform">
+					<fieldset id="spflags">
+						<legend>Flags</legend>
+						<span class="oliveonly">Hosted By:
+							<input type="radio" name="hostedby" id="hbany" value="any" checked="checked"/>
+							<label for="hbany"><abbr title="Hosted by Anyone">Anyone</abbr></label>
+							<input type="radio" name="hostedby" id="hbolive" value="olive"/>
+							<label for="hbolive"><abbr title="Hosted by Olive">Olive</abbr></label>
+							<input type="radio" name="hostedby" id="hbext" value="external"/>
+							<label for="hbext"><abbr title="Hosted by someone other than Olive">Non-Olive</abbr></label></span>
+						<p>Authentication:
+							<input type="checkbox" name="autholive" id="autholive" checked="checked"/>
+							<label for="autholive"><abbr title="Skins using standard Olive authentication">Olive</abbr></label>
+							<input type="checkbox" name="authfree" id="authfree" checked="checked"/>
+							<label for="authfree"><abbr title="Skins normally freely available">Free</abbr></label>
+							<input type="checkbox" name="authtrial" id="authtrial" checked="checked"/>
+							<label for="authtrial"><abbr title="Trial/Demo skins for regularly paid skins, usually with limited content">Trial</abbr></label>
+							<input type="checkbox" name="authtpa" id="authtpa" checked="checked"/>
+							<label for="authtpa"><abbr title="Skins using third-party/non-Olive authentication methods">Non-Olive</abbr></label>
+						</p>
+						<p>Other:
+							<input type="checkbox" name="othernie" id="othernie" checked="checked"/>
+							<label for="othernie"><abbr title="Newspapers in Education skins">NIE</abbr></label>
+							<input type="checkbox" name="otherdead" id="otherdead" class="oliveonly"/>
+							<label for="otherdead" class="oliveonly"><abbr title="Skins that are dead or no longer live">Dead</abbr></label>
+							<input type="checkbox" name="otherinprog" id="otherinprog" class="oliveonly" checked="checked"/><!--4.7-->
+							<label for="otherinprog" class="oliveonly"><abbr title="Skins that are in progress, but not yet live">In Progress</abbr></label><!--4.7-->
+							<input type="checkbox" name="otherprimary" id="otherprimary" class="oliveonly"/>
+							<label for="otherprimary" class="oliveonly"><abbr title="Display Primary skins only">Primary Only</abbr></label>
+							<input type="checkbox" name="otherwrapper" id="otherwrapper" class="oliveonly"/>
+							<label for="otherwrapper" class="oliveonly"><abbr title="Only sites with Wrappers">Wrapper</abbr></label>
+						</p>
+						<p class="oliveonly">Timestamp:
+							<input type="checkbox" name="ts_has" id="ts_has" class="oliveonly"/>
+							<label for="ts_has"><abbr title="Only sites that have recorded timestamps (after May 10 2017)">Has Timestamp</abbr></label>
+						</p>
+					</fieldset>
+				</div>
+				<div class="formfield" id="leftform">
+					<p>
+						<label for="newdate">Date<abbr title='Applied to Auth URL'><span class='ui-icon ui-icon-calendar'></span></abbr>:</label>
+						<input type="text" id="newdate" name="newdate" class="immediateapply"/>
+					</p>
+					<p>
+						<label for="authid">Authentication ID<abbr title='Applied to Auth URL'><span class='ui-icon ui-icon-person'></span></abbr>:</label>
+						<input type="text" id="authid" name="authid" value="OliveQA" class="immediateapply"/>
+						<span class="oliveonly" id="rndauthid">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					</p>
+					<p>
+						<label for="rvalue">Restrictions<abbr title='Applied to Auth URL'><span class='ui-icon ui-icon-locked'></span></abbr>:</label>
+						<input type="text" id="rvalue" name="rvalue" value="none" class="immediateapply"/>
+					</p>
+				</div>
+			</div>
+		</form>
+		<div id="formbutts">
+			<button id="filtButt" accesskey="13">Apply Filters</button>
+			<button id="resetButt">Reset Filters</button>
+			<button id="refButt">Clear Display Pane</button>
+		</div>
+	</div>
+</div>
+
+<!-- left and right frames-->
+<div id="workframe">
+	<div id="navframe">
+		<div id="navlist"></div>
+		<button id="list_export">Export</button>
+	</div>
+	<div id="dispframe"></div>
+</div>
+<div id="dialog">
+	<div id="diatext"></div>
+</div>
+<div id="export">
+	<div id="exptext"></div>
+</div>
+
+<!-- Pop up Divs -->
+<div id="processer">
+	<form id="processform" name="processform">
+		<p><span id="processAll"><span class="processTitle">Process</span> All</span>
+		<span class="processTitle">Process</span> Date: <input type="text" id="processdate" name="processdate">
+		<small>NOTE: Publications may not be available for requested date.</small>
+		<span id="processSpecial"><span class="processSpecial">Special</span></span>
+		</p>
+	</form>
+	<div id="processtext"></div>
+</div>
+<div id="dialog-confirm">
+	<div id="conftext"></div>
+</div>
+<div id="sitesummary"><!--4.6.2-->
+	<div id="sitesummarytext"></div>
+</div>
+
+<!-- Help -->
+<div id="help">
+	<p>Version: <span class="pageversion">6.0.0</span> | Data store updated: <span id="xmltimestamp">loading</span>.</p>
+	<p><em>General:</em></p>
+	<p>Click on <kbd>Site Title</kbd> (left/top grey pane) to generate an authenticating URL (displayed in the right/bottom white pane).</p>
+	<p><kbd>Date</kbd>, <kbd>ID</kbd>, and <kbd>Restrictions</kbd> default to today's UTC date, <code>&quot;<span id="qauserid">OliveQA</span>&quot;</code>, 
+		and <code>&quot;none&quot;</code>, respectively.  To change these values, simply edit the appropriate field and click the 
+		<kbd>Apply Filters</kbd> button.</p>
+	<p>To clear the filters, click the <kbd>Reset Filters</kbd> button. To refresh the white column, click the <kbd>Clear Display Pane</kbd> button.</p>
+	<p class="oliveonly">Sites with a suitcase icon (<abbr title="Not Hosted by Olive"><span class="ui-icon ui-icon-suitcase"></span></abbr>) are not hosted by Olive.</p>
+	<p class="oliveonly">Sites with a star icon (<abbr title="Primary"><span class="ui-icon ui-icon-star"></span></abbr>) are the primary skin for a publication; this excludes secondary applications, special sections, trial sites, etc.</p>
+	<p>Sites with an open lock icon (<abbr title="Free Site"><span class="ui-icon ui-icon-unlocked"></span></abbr>) or a key icon 
+	(<abbr title="Trial Site"><span class="ui-icon ui-icon-key"></span></abbr>) are not authenticated; the later is a "Trial" site.</p>
+	<!--p>Sites that are in <i>italic</i> do not use the restrictions field.</p-->
+	<!--p class="oliveonly">Sites that are deemed not safe to demo will be tagged with a warning icon (<abbr title="Do Not Demo"><span class="ui-icon ui-icon-alert"></span></abbr>).</p-->
+	<p class="oliveonly">Sites with a lightbulb icon (<abbr title="Special Rule"><span class="ui-icon ui-icon-lightbulb"></span></abbr>) have special rules applied to their URLs 
+	(they use non-standard URL pattern, etc).</p>
+	<p>Both the site's Repo ID and application are denoted in brackets.</p>
+	<p class="oliveonly">Mousing over the application should reveal the site's secret passphrase, if applicable.</p>
+	<p><kbd>Generic Text Filter:</kbd> Similar to a normal search; entering a value here (and clicking the <kbd>Apply...</kbd>
+		button) will dislay only sites that contain the entered text.  This is not case sensitive.  You can also add a minus "<code>-</code>" before your term to eliminate all sites that contain the entered text. (Example: "<code>-NIE</code>" will remove all sites with "NIE" in them). You can also populate this field by appending <code>?q={search_term}</code> into the URL.</p>
+	<p class="oliveonly"><kbd>Parent:</kbd> Choose <code>Any</code> to display all, <code>None</code> to display publications without a parent, or pick a parent organization from the drop down.
+		List of parent organizations is generated dynamically from the data store.  Choosing a parent will eliminate all sites
+		not belonging to the chosen parent from the list.  Only one parent can be chosen at a time.</p>
+	<p><kbd>Application:</kbd> Choose <code>All</code> to display all sites, regardless of application, or pick a specific application
+		from the drop down.  List of applications is generated dynamically from the data store.  Choosing an application will eliminate 
+		all sites not of the chosen application.  Only one application can be chosen at a time. Some applications also have versions (<code>Ver</code> drop down).</p>
+	<p><em>Flags:</em></p>
+	<p class="oliveonly"><kbd>Hosted By:</kbd> Choose from <code>Anyone</code> (all sites, regardless of who hosts them), <code>Olive</code> 
+		(sites hosted by Olive only), or <code>Non-Olive</code> (sites not hosted by Olive).  Olive hosted sites (regardless
+		of filter) will contain server-specific links beneath the main authenticating URL.</p>
+	<p><kbd>Authentication:</kbd> Check the variations of authentication (<code>Olive</code>, <code>Free</code>, <code>Trial</code>, &amp;/or <code>Non-Olive</code>) you want.</p>
+	<p><kbd>Other:</kbd> Choose from <code>NIE</code>, <code>Dead</code>, <code>In Progress</code>, <code>Primary Only</code></p>
+	<p>Multiple filters can be applied at once.  If no sites are found, a <span class='noresults'>No Results Found</span> message will be displayed.</p>
+	<p></p>
+	<p>Please report problems or comments to <a href="mailto:brian.redd@olivesoftware.com">Brian Redd</a>.</p>
+</div>
+
+<!-- build:js Inc/qaa.js -->
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script> <!--Load jQuery-->
+<script type="text/javascript" src="code/md5.js"></script> <!-- Load MD5 scripts file -->
+<script type="text/javascript" src="code/jquery-ui-1.8.16.custom.min.js"></script> <!--Load jQuery UI-->
+<script type="text/javascript" src="inc/scripts6.0.js"></script> <!-- Load general scripts file-->
+<!-- endbuild -->
+
+</body>
+</html>

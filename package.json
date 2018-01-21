@@ -1,0 +1,39 @@
+{
+  "name": "qaauther6",
+  "version": "6.0.7",
+  "description": "Olive Software QA Authenticator Tool v6",
+  "main": "QAAuther.html",
+  "scripts": {
+    "start": "npm run lite",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server",
+    "clean": "rimraf _Distribution",
+    "copydata": "copyfiles -f qadata/* _Distribution/qadata",
+    "copyjqui": "copyfiles -f code/images/* _Distribution/styles/images",
+    "copyusers": "copyfiles -f inc/*.json _Distribution/inc",
+    "imagemin": "imagemin Styles/images/* -o _Distribution/styles/images",
+    "usemin": "usemin QAAuther.html -d _Distribution --htmlmin -o _Distribution/QAAuther.html && usemin QAAutherEditor.html -d _Distribution --htmlmin -o _Distribution/QAAutherEditor.html",
+    "build": "npm run clean && npm run copydata && npm run copyjqui && npm run copyusers && npm run imagemin && npm run usemin"
+  },
+  "author": "R Brian Redd",
+  "license": "ISC",
+  "devDependencies": {
+    "cssmin": "^0.4.3",
+    "htmlmin": "0.0.7",
+    "lite-server": "^2.3.0",
+    "rimraf": "^2.6.2",
+    "uglify-js": "^3.3.2",
+    "usemin-cli": "^0.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrianRedd/QAAuther.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BrianRedd/QAAuther/issues"
+  },
+  "homepage": "https://github.com/BrianRedd/QAAuther#readme",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
